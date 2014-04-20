@@ -1,0 +1,4 @@
+## Title: Soul Gem Notifier
+## APIVersion: 100003
+
+SoulGemNotifier.lua
