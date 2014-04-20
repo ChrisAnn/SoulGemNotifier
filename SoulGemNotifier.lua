@@ -1,7 +1,7 @@
 --[[
 	SoulGemNotifier
 	Author: @ChrisAnn
-	Thanks to Combat Log Statistics and XPNotifier for being inspiration
+	Thanks to SoulGemsCounter, Combat Log Statistics and XPNotifier for being inspiration
 ]]
 
 
@@ -13,12 +13,12 @@ function SoulGemNotifier.Initialise(eventCode, addOnName)
 	if (addOnName ~= SoulGemNotifier.name) then return end
 
 	zo_callLater(function() d("Soul Gem Notifier Initialised.") end, 4000)
-	EVENT_MANAGER:RegisterForEvent(SoulGemNotifier.name, EVENT_COMBAT_EVENT, SoulGemNotifier.OnCombatEvent)
+	EVENT_MANAGER:RegisterForEvent(SoulGemNotifier.name, EVENT_INVENTORY_SINGLE_SLOT_UPDATE, SoulGemNotifier.OnSingleSlotUpdate)
 end
 
-function SoulGemNotifier.OnCombatEvent(eventCode, result, isError, abilityName, abilityGraphic, abilityActionSlotType, sourceName, sourceType, targetName, targetType, hitValue, powerType, damageType, log)
-	-- Display all combat events for debugging
-	d( "[" ..result .. "]," .. "[" ..abilityName .. "]," .. "[" ..sourceName .. "]," .. "[" ..sourceType .. "]," .. "[" ..targetName .. "]," .. "[" ..targetType .. "]," .. "[" ..hitValue .. "]," .. "[" ..abilityActionSlotType .. "]," .. "[" ..powerType .. "]," .. "[" ..damageType .. "]" )
+function SoulGemNotifier.OnSingleSlotUpdate(eventId, bagId, slotId, isNewItem)
+	d("[eventId:"..eventId.."][bagId:"..bagId.."][slotId:"..slotId.."]" .. string.format("[isNewItem: %s]", isNewItem and "true" or "false"))
+	d(string.format("IsFilledSoulGem: %s", IsItemSoulGem(1, bagId, slotId) and "true" or "false"))
 end
 
 EVENT_MANAGER:RegisterForEvent(SoulGemNotifier.name, EVENT_ADD_ON_LOADED, SoulGemNotifier.Initialise)
