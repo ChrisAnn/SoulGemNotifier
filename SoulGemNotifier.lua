@@ -7,7 +7,7 @@
 
 SoulGemNotifier = {}
 SoulGemNotifier.name = "SoulGemNotifier"
-SoulGemNotifier.version = "0.1.0"
+SoulGemNotifier.version = "1.0.0"
 SoulGemNotifier.debug = false
 
 function SoulGemNotifier.Initialise(eventCode, addOnName)
