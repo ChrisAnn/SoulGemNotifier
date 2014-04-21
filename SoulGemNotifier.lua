@@ -20,12 +20,12 @@ end
 function SoulGemNotifier.OnSingleSlotUpdate(eventId, bagId, slotId, isNewItem)
 	
 	if (SoulGemNotifier.debug) then
-		d("[eventId:"..eventId.."][bagId:"..bagId.."][slotId:"..slotId.."]" .. string.format("[isNewItem: %s]", isNewItem and "true" or "false"))
-		d(string.format("IsFilledSoulGem: %s", IsItemSoulGem(1, bagId, slotId) and "true" or "false"))
+		d("|r|c888888 [eventId:"..eventId.."][bagId:"..bagId.."][slotId:"..slotId.."]" .. string.format("[isNewItem: %s]", isNewItem and "true" or "false"))
+		d("|r|c888888 " .. string.format("IsFilledSoulGem: %s", IsItemSoulGem(1, bagId, slotId) and "true" or "false"))
 	end
 
 	if (IsItemSoulGem(1, bagId, slotId) and isNewItem) then
-		d("Filled a Soul Gem")
+		d("|r|c00FFFF Filled a Soul Gem")
 	end
 end
 
