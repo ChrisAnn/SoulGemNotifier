@@ -1,4 +1,6 @@
 ## Title: Soul Gem Notifier
-## APIVersion: 100003
+## Author: ChrisAnnODell
+## Version: 1.02
+## APIVersion: 100011
 
 SoulGemNotifier.lua
